@@ -1,5 +1,6 @@
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
+const counter = document.getElementById('generations');
 
 const resolution = 8;
 canvas.width = 1920;
@@ -7,6 +8,8 @@ canvas.height = 1080;
 
 const COLS = canvas.width / resolution;
 const ROWS = canvas.height / resolution;
+
+let gen = 0;
 
 function  buildGrid() {
     return new Array(COLS).fill(null)
@@ -69,5 +72,7 @@ function nextGen(grid) {
         }
       }
     }
+    gen++;
+    document.getElementById('generations').innerHTML =  ('Generation: ', gen);
     return nextGen;
   }
