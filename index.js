@@ -1,11 +1,9 @@
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 
-const resolution = 10;
-// canvas.width = Math.floor(window.innerWidth);
-// canvas.height = Math.floor(window.innerHeight);
-canvas.width = 800;
-canvas.height = 800;
+const resolution = 8;
+canvas.width = 1920;
+canvas.height = 1080;
 
 const COLS = canvas.width / resolution;
 const ROWS = canvas.height / resolution;
@@ -13,7 +11,7 @@ const ROWS = canvas.height / resolution;
 function  buildGrid() {
     return new Array(COLS).fill(null)
     .map(() => new Array(ROWS).fill(0)
-    .map(() => Math.floor(Math.random() * 2)));
+      .map(() => Math.floor(Math.random() * 2)));
 }
 
 let grid = buildGrid();
@@ -33,7 +31,7 @@ function render(grid) {
 
             const cell = grid[col][row];
 
-            ctx.fillStyle = cell === 1 ? '#000' : '#fff';
+            ctx.fillStyle = cell === 1 ? '#fff' : '#000';
             ctx.fillRect(x, y, resolution, resolution);
         }
     }
@@ -73,18 +71,3 @@ function nextGen(grid) {
     }
     return nextGen;
   }
-
-function countNeighbors() {
-    let sum = 0;
-    for (let col = -1; col < 2; col++) {
-        for (let row = -1; row < 2; row++) {
-            const x = col + col;
-            const y = row + row;
-
-            if (x === 0 && y === 0) continue;
-
-            const cell = grid[col][row];
-            sum += cell;
-        }
-    }
-}
