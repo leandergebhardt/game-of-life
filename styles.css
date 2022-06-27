@@ -1,6 +1,11 @@
 body {
     background-color: black;
 }
+#generations {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
 
 #generations::before {
     content: "Generation: ";
@@ -8,4 +13,5 @@ body {
 
 .white {
     color: white;
+    background-color: black;
 }

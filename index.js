@@ -73,6 +73,6 @@ function nextGen(grid) {
       }
     }
     gen++;
-    document.getElementById('generations').innerHTML =  ('Generation: ', gen);
+    document.getElementById('generations').innerHTML =  (gen);
     return nextGen;
   }
